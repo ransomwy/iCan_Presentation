@@ -6,6 +6,7 @@ import {
   Cite,
   CodePane,
   Deck,
+  Fill,
   Heading,
   Image,
   ListItem,
@@ -19,7 +20,6 @@ import {
 } from "spectacle";
 
 import preloader from "spectacle/lib/utils/preloader";
-import Listing from "../assets/Listing"
 import createTheme from "spectacle/lib/themes/default";
 require("normalize.css");
 require("spectacle/lib/themes/default/index.css");
@@ -85,17 +85,20 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]} bgImage={images.ican_screenshot}></Slide>
 
-        <Slide transition={["zoom", "fade"]} bgColor="white">
-        <CodePane
-          center
-           lang="jsx"
-           source={require("raw-loader!../assets/geolocation.example")}
-           margin="20px 20px 20px 20px"
-         />
-        </Slide>
 
         <Slide transition={["zoom", "fade"]} bgColor="white">
-          <Listing />
+          <Fill>
+            <Heading size={1} textColor="white" caps bgColor="secondary" margin={10}>
+              Challenges
+            </Heading>
+            </Fill>
+            <List ordered>
+              <ListItem textSize="50px" bold textColor="tertiary">Retrieveing concise JSON</ListItem>
+              <br />
+              <ListItem textSize="50px" bold textColor="tertiary">Data flow through Redux</ListItem>
+              <br />
+              <ListItem textSize="50px" bold textColor="tertiary">UX/UI meshing with functionality</ListItem>
+            </List>
         </Slide>
 
         <Slide transition={["fade"]} bgImage={images.roadmap} bgDarken={0.25}>
@@ -112,38 +115,48 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="white">
-          <Appear fid="1">
-          <Heading textSize="80px" lineHeight={2} textColor="tertiary" bold>What is next for iCan?</Heading>
-          </Appear>
-          <Appear fid="2">
             <Table>
               <TableBody>
                 <TableRow>
-                  <TableItem><Image width="250px" height="250px" src={images.game}/></TableItem>
-                  <TableItem><Image width="250px" height="250px" src={images.review}/></TableItem>
-                  <TableItem><Image width="250px" height="250px" src={images.friend}/></TableItem>
+                  <Appear fid="1">
+                    <TableItem>
+                      <Image width="275px" height="275px" src={images.game}/>
+                      <Text size={1} textColor="white" caps bgColor="tertiary" margin={10} textAlign="center">Gameify</Text>
+                    </TableItem>
+                  </Appear>
+                  <Appear fid="2">
+                    <TableItem>
+                      <Image width="275px" height="275px" src={images.review}/>
+                      <Text size={1} textColor="white" caps bgColor="tertiary" margin={10} textAlign="center">Reviews</Text>
+                    </TableItem>
+                  </Appear>
+                  <Appear fid="3">
+                    <TableItem>
+                      <Image width="275px" height="275px" src={images.friend}/>
+                      <Text size={1} textColor="white" caps bgColor="tertiary" margin={10} textAlign="center">Connect</Text>
+                    </TableItem>
+                  </Appear>
                 </TableRow>
               </TableBody>
             </Table>
-          </Appear>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="secondary">
-        <Heading size={3} textColor="quartenary">
-              Technologies Used:
-        </Heading>
-            <Table>
-              <TableBody>
-                <TableRow>
-                  <TableItem><Image width="250px" height="250px" src={images.javaScript}/></TableItem>
-                  <TableItem><Image width="250px" height="250px" src={images.rubyrails}/></TableItem>
-                </TableRow>
-                <TableRow>
+          <Heading size={3} textColor="quartenary">
+            Technology Stack
+          </Heading>
+          <Table>
+            <TableBody>
+              <TableRow>
+                <TableItem><Image width="250px" height="250px" src={images.javaScript}/></TableItem>
+                <TableItem><Image width="250px" height="250px" src={images.rubyrails}/></TableItem>
+              </TableRow>
+              <TableRow>
                 <TableItem><Image width="250px" height="250px" src={images.react}/></TableItem>
                 <TableItem><Image width="250px" height="250px" src={images.redux}/></TableItem>
-                </TableRow>
-              </TableBody>
-            </Table>
+              </TableRow>
+            </TableBody>
+          </Table>
         </Slide>
       </Deck>
     );

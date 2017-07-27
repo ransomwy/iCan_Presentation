@@ -1,0 +1,30 @@
+class CurrentLocation extends React.Component {
+  static DefaultProps = {
+    center: { latitude: 38.8977, longitude: 77.0365 },
+  }
+
+  state = {
+    center: this.props.center,
+    address: 'DevPoint Labs',
+		loaded: false
+  }
+
+  componentDidMount() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition( position => {
+        let { coords: { latitude, longitude } } = position;
+        this.setState({ center: { latitude, longitude }, loaded: true },
+          () => this.props.dispatch(addLocation(this.state.center))
+        );
+      });
+    } else {
+      alert("Geolocation is not supported by this browser.");
+			this.setState({ loaded: true })
+    }
+  }
+
+	render() {
+		let { loaded } = this.state
+		return loaded ? this.props.children : null
+	}
+}

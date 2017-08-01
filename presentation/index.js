@@ -44,7 +44,7 @@ const theme = createTheme({
   primary: "#CECECE",
   secondary: "#1F2022",
   tertiary: "#03A9FC",
-  quartenary: "#67D556 "
+  quartenary: "#67D556"
 }, {
   primary: "Montserrat",
   secondary: "Helvetica"
@@ -53,13 +53,8 @@ const theme = createTheme({
 export default class Presentation extends React.Component {
   render() {
     return (
-      <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme} progress="number">
+      <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme} progress="none">
 
-        <Slide transition={["zoom"]} bgColor="white">
-          <Heading size={1} fit lineHeight={3} textColor="tertiary">
-            Who can help?
-          </Heading>
-        </Slide>
 
         <Slide transition={["spin", "zoom"]} bgColor="white">
           <Heading size={1} textColor="tertiary">iCan</Heading>
@@ -93,7 +88,7 @@ export default class Presentation extends React.Component {
             </Heading>
             </Fill>
             <List ordered>
-              <ListItem textSize="50px" bold textColor="tertiary">Retrieveing concise JSON</ListItem>
+              <ListItem textSize="50px" bold textColor="tertiary">Retrieving concise JSON</ListItem>
               <br />
               <ListItem textSize="50px" bold textColor="tertiary">Data flow through Redux</ListItem>
               <br />
@@ -121,13 +116,13 @@ export default class Presentation extends React.Component {
                   <Appear fid="1">
                     <TableItem>
                       <Image width="275px" height="275px" src={images.game}/>
-                      <Text size={1} textColor="white" caps bgColor="tertiary" margin={10} textAlign="center">Gameify</Text>
+                      <Text size={1} textColor="white" caps bgColor="tertiary" margin={10} textAlign="center">Reviews</Text>
                     </TableItem>
                   </Appear>
                   <Appear fid="2">
                     <TableItem>
                       <Image width="275px" height="275px" src={images.review}/>
-                      <Text size={1} textColor="white" caps bgColor="tertiary" margin={10} textAlign="center">Reviews</Text>
+                      <Text size={1} textColor="white" caps bgColor="tertiary" margin={10} textAlign="center">Gamify</Text>
                     </TableItem>
                   </Appear>
                   <Appear fid="3">
@@ -157,6 +152,19 @@ export default class Presentation extends React.Component {
               </TableRow>
             </TableBody>
           </Table>
+        </Slide>
+
+        <Slide transition={["zoom"]} bgColor="white">
+          <Appear fid="1">
+            <Heading size={1} textColor="tertiary">
+              Who can help?
+            </Heading>
+          </Appear>
+          <Appear fid="2">
+            <Heading as='h2' lineHeight={3} textColor="quartenary">
+              iCan
+            </Heading>
+          </Appear>
         </Slide>
       </Deck>
     );

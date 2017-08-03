@@ -37,6 +37,8 @@ const images = {
   game: require("../assets/gameify.svg"),
   friend: require("../assets/friends.svg"),
   review: require("../assets/review.svg"),
+  FirstPage: require("../assets/RaisedHands.jpg"),
+  logo: require("../assets/download.png"),
 };
 
 preloader(images);
@@ -56,13 +58,12 @@ export default class Presentation extends React.Component {
     return (
       <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme} progress="none">
 
-
-        <Slide transition={["spin", "zoom"]} bgColor="white">
-          <Heading size={1} textColor="tertiary">iCan</Heading>
-          <Heading size={4} textColor="quartenary">Full Stack Web Application</Heading>
-          <Text size={1} textColor="secondary"> Ransom Valley, Jacob Wheeler </Text>
-          <Text size={1} textColor="secondary"> Branden Bird, Zoe Larsen </Text>
-        </Slide>
+      <Slide transition={["fade"]} bgImage={images.FirstPage} bgDarken={0.45}>
+        <Image src={images.logo}/>
+        <Heading size={4} textColor="white">Full Stack Web Application</Heading>
+        <Text size={1} textColor="white"> Ransom Valley, Jacob Wheeler </Text>
+        <Text size={1} textColor="white"> Branden Bird, Zoe Larsen </Text>
+      </Slide>
 
         <Slide transition={["fade"]} bgColor="white" textColor="tertiary">
           <Appear fid="1">

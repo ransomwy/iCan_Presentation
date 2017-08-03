@@ -26,12 +26,13 @@ require("spectacle/lib/themes/default/index.css");
 
 
 const images = {
-  computer: require("../assets/computer.jpg"),
-  javaScript: require("../assets/Javascript.png"),
-  rubyrails: require("../assets/rubyrails.png"),
-  redux: require("../assets/redux.png"),
+  javaScript: require("../assets/js_6_logo.png"),
+  rubyrails: require("../assets/ruby_on_rails_logo.png"),
+  redux: require("../assets/redux_logo.png"),
   react: require("../assets/react.png"),
-  ican_screenshot: require("../assets/ican_screenschot.png"),
+  FormGif: require("../assets/ListingForm.gif"),
+  MessageResGif: require("../assets/MessageResponse.gif"),
+  MessageListGif: require("../assets/MessageListing.gif"),
   roadmap: require("../assets/roadmap.jpg"),
   game: require("../assets/gameify.svg"),
   friend: require("../assets/friends.svg"),
@@ -78,8 +79,17 @@ export default class Presentation extends React.Component {
           </Appear>
         </Slide>
 
-        <Slide transition={["fade"]} bgImage={images.ican_screenshot}></Slide>
+        <Slide transition={["fade"]} bgColor="black">
+          <Image width="650px" height="400px" src={images.FormGif}/>
+        </Slide>
 
+        <Slide transition={["fade"]} bgColor="black">
+          <Image width="650px" height="400px" src={images.MessageResGif}/>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="black">
+          <Image width="650px" height="400px" src={images.MessageListGif}/>
+        </Slide>
 
         <Slide transition={["zoom", "fade"]} bgColor="white">
           <Fill>
@@ -98,12 +108,12 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]} bgImage={images.roadmap} bgDarken={0.25}>
         <Appear fid="1">
-          <Heading size={1} textColor="secondary" caps fit>
+          <Heading size={1} textColor="white" caps fit>
             Roadmap
           </Heading>
         </Appear>
         <Appear fid="2">
-          <Text size={1} textColor="secondary" bold>
+          <Text size={1} textColor="white" bold>
             The future of our App
           </Text>
         </Appear>
@@ -115,13 +125,13 @@ export default class Presentation extends React.Component {
                 <TableRow>
                   <Appear fid="1">
                     <TableItem>
-                      <Image width="275px" height="275px" src={images.game}/>
+                      <Image width="275px" height="275px" src={images.review}/>
                       <Text size={1} textColor="white" caps bgColor="tertiary" margin={10} textAlign="center">Reviews</Text>
                     </TableItem>
                   </Appear>
                   <Appear fid="2">
                     <TableItem>
-                      <Image width="275px" height="275px" src={images.review}/>
+                      <Image width="275px" height="275px" src={images.game}/>
                       <Text size={1} textColor="white" caps bgColor="tertiary" margin={10} textAlign="center">Gamify</Text>
                     </TableItem>
                   </Appear>
